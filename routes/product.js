@@ -4,7 +4,7 @@ const passport = require("passport");
 
 const productControllers = require("../controllers/product");
 const adminRight = require("../middlewares/adminRight");
-const { multerUpload } = require("../middlewares/multer");
+// const { multerUpload } = require("../middlewares/multer");
 
 //2. Get all product
 router.get("/products", productControllers.getAll);

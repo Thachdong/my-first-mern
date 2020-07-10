@@ -2,7 +2,8 @@
 const Joi = require("@hapi/joi");
 
 export const loginSchema = Joi.object({
-  phone: Joi.string().pattern(new RegExp("^0([0-9]{9})$")),
+  // phone: Joi.string().pattern(new RegExp("^0([0-9]{9})$")),
+  phone: Joi.string(),
   password: Joi.string(),
   // password: Joi.string().pattern(new RegExp("^([a-zA-Z0-9]{6,30})$")),
 });
@@ -39,7 +40,8 @@ export const orderSchema = Joi.object({
   owner: Joi.string(),
   items: Joi.array().items(itemSchema).min(1).required(),
   shippingAddress: Joi.string().required(),
-  phone: Joi.string().pattern(new RegExp("^0([0-9]{9})$")),
+  // phone: Joi.string().pattern(new RegExp("^0([0-9]{9})$")),
+  phone: Joi.string(),
   tax: Joi.number().required(),
   totalPrice: Joi.number().required(),
 });
