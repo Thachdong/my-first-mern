@@ -1,10 +1,8 @@
 import Joi from "@hapi/joi";
 
 export const loginSchema = Joi.object({
-  phone: Joi.string().pattern(new RegExp("^0([0-9]{9})$")).required(),
-  password: Joi.string()
-    .pattern(new RegExp("^([a-zA-Z0-9]{6,30})$"))
-    .required(),
+  phone: Joi.string().pattern(new RegExp("^0([0-9]{9})$")),
+  password: Joi.string().pattern(new RegExp("^([a-zA-Z0-9]{6,30})$")),
 });
 
 export const userUpdateSchema = Joi.object({
@@ -15,28 +13,26 @@ export const userUpdateSchema = Joi.object({
 
 export const registerSchema = Joi.object({
   userName: Joi.string().alphanum().min(3).max(50).required(),
-  phone: Joi.string().pattern(new RegExp("^0([0-9]{9})$")).required(),
+  phone: Joi.string().pattern(new RegExp("^0([0-9]{9})$")),
   email: Joi.string().email({
     minDomainSegments: 2,
     tlds: { allow: ["com", "net"] },
   }),
-  password: Joi.string()
-    .pattern(new RegExp("^([a-zA-Z0-9]{6,30})$"))
-    .required(),
+  password: Joi.string().pattern(new RegExp("^([a-zA-Z0-9]{6,30})$")),
   repeatPassword: Joi.ref("password"),
   address: Joi.string().required(),
 });
 
 const itemSchema = Joi.object({
-  item: Joi.string().pattern(new RegExp("^([0-9A-Fa-f]{24})$")).required(),
+  item: Joi.string().pattern(new RegExp("^([0-9A-Fa-f]{24})$")),
   qty: Joi.number().min(1).required(),
 });
 
 export const orderSchema = Joi.object({
-  owner: Joi.string().pattern(new RegExp("^[0-9A-Fa-f]{24}$")).required(),
+  owner: Joi.string().pattern(new RegExp("^[0-9A-Fa-f]{24}$")),
   items: Joi.array().items(itemSchema).min(1).required(),
   shippingAddress: Joi.string().required(),
-  phone: Joi.string().pattern(new RegExp("^0([0-9]{9})$")).required(),
+  phone: Joi.string().pattern(new RegExp("^0([0-9]{9})$")),
   tax: Joi.number().required(),
   totalPrice: Joi.number().required(),
 });
