@@ -4,7 +4,6 @@ const passport = require("passport");
 
 const productControllers = require("../controllers/product");
 const adminRight = require("../middlewares/adminRight");
-// const { multerUpload } = require("../middlewares/multer");
 
 //2. Get all product
 router.get("/products", productControllers.getAll);
@@ -13,7 +12,7 @@ router.get("/products", productControllers.getAll);
 router.use(passport.authenticate("jwt", { session: false }), adminRight);
 
 //1. Add product
-router.post("/add", multerUpload, productControllers.add);
+router.post("/add", productControllers.add);
 
 //3. Get product by id
 router.get("/:productId", productControllers.getById);
