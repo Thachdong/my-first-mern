@@ -1,4 +1,5 @@
-import Joi from "@hapi/joi";
+// import Joi from "@hapi/joi";
+const Joi = require("@hapi/joi");
 
 export const loginSchema = Joi.object({
   phone: Joi.string().pattern(new RegExp("^0([0-9]{9})$")),
