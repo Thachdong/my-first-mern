@@ -1,0 +1,1 @@
+{"options":{},"indexes":[{"v":{"$numberInt":"2"},"key":{"_id":{"$numberInt":"1"}},"name":"_id_","ns":"ecommerce.users"},{"v":{"$numberInt":"2"},"unique":true,"key":{"phone":{"$numberInt":"1"}},"name":"phone_1","ns":"ecommerce.users","background":true}],"uuid":"93f980b104bc4d698619d796426a60e9"}
