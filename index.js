@@ -33,11 +33,11 @@ app.use("/product", productRoutes);
 app.use("/order", orderRoutes);
 
 //Catch 404 error
-app.use((req, res, next) => {
-  const error = new Error("Not found");
-  error.status = 404;
-  return next(error);
-});
+// app.use((req, res, next) => {
+//   const error = new Error("Not found");
+//   error.status = 404;
+//   return next(error);
+// });
 
 //Error handler
 app.use((error, req, res, next) => {
